@@ -41,7 +41,8 @@ class DeckList extends Component {
             <Text style={styles.title}>FlashCards</Text>
             {Object.keys(decks).map((deck) => (
                 <Animated.View key={deck} style={{ transform: [{ scale: bounceValue }] }}>
-                    <Text style={styles.txt}>{deck}</Text>
+                    <Text style={styles.txt}>{deck}-{this.props.decks[deck].questions.length} Cards</Text>
+                    
                     <Button onPress={() => this.newLoc(deck)} title="view deck">
                     </Button>
                 </Animated.View>

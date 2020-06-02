@@ -13,6 +13,7 @@ import reducer from './reducers'
 import { createStore } from 'redux'
 import AddNewCard from './components/AddNewCard';
 import Quiz from './components/Quiz';
+import { setLocalNotification } from './utils/helpers'
 
 const Tabs = createBottomTabNavigator();
 
@@ -59,6 +60,12 @@ function Tab() {
 const Stack = createStackNavigator();
 
 export default class App extends React.Component {
+
+  componentDidMount() {
+    setLocalNotification()
+  }
+
+
   render() {
     return (
       <Provider store={createStore(reducer)}>

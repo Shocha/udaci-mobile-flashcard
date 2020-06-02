@@ -8,7 +8,7 @@ class Quiz extends Component {
 
     state = {
         start: 0,
-        showAnswer: false,
+        showAnswerArea: false,
         score: 0
     }
 
@@ -21,7 +21,8 @@ class Quiz extends Component {
     result = (answer) => {
         if (answer) {
             this.setState((current) => ({
-                score: current.score + 1
+                score: current.score + 1,
+                showAnswerArea: false
             }))
         }
         this.setState((current) => ({
@@ -34,7 +35,7 @@ class Quiz extends Component {
         this.setState(() => ({
             score: 0,
             start: 0,
-            showAnswer: false
+            showAnswerArea: false
         }))
     }
 
