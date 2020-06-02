@@ -27,7 +27,7 @@ class Quiz extends Component {
         }
         this.setState((current) => ({
             start: current.start + 1,
-            
+            showAnswerArea: false
         }))
     }
 
@@ -60,6 +60,7 @@ class Quiz extends Component {
                 clearLocalNotification().then(setLocalNotification())
             }
             return (<View>
+            
                 <Text style={styles.title}>Your Score is: {score}/{cardQuant}</Text>
                 <Button onPressHandler={() => this.onRestart()} text='Restart Quiz' />
 
@@ -68,8 +69,9 @@ class Quiz extends Component {
         }
         return (<View>
             <Text style={styles.title}>Quiz Page</Text>
+            <Text style={styles.nrmtxt}>Cards remaining:{cardQuant-(start+1)}</Text>
             <Text style={styles.nrmtxt}>{questions[start].question}</Text>
-
+            
             {!this.state.showAnswerArea && (
                 <View>
                     <Button
